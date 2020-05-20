@@ -7,10 +7,11 @@ const ReactROgue = ({ width, height, tilesize }) => {
   // useEffect is a lifecycle hook that
   useEffect(() => {
     console.log("draw to canvas");
+    // context
     const ctx = canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, width * tilesize, height * tilesize);
-    ctx.fillStyle='#0000'
-    // ctx.
+    ctx.fillStyle = "#000";
+    ctx.fillRect(12, 22, 16, 16);
   });
   return (
     <canvas

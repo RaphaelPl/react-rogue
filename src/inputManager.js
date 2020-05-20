@@ -31,7 +31,7 @@ class inputManager {
         this.broadcast("move", { x: 1, y: 0 });
         break;
       // down arrow
-      case 38:
+      case 40:
         this.broadcast("move", { x: 0, y: 1 });
         break;
       default:

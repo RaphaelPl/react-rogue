@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import inputManager from "./inputManager"
+import InputManager from "./InputManager";
 
-const ReactROgue = ({ width, height, tilesize }) => {
+const ReactRogue = ({ width, height, tilesize }) => {
   // hook to give us handy access to canvas
   const canvasRef = useRef();
   // allows us to call this class and call bind keys on the document
-  var inputManager = new inputManager();
+  let inputManager = new InputManager();
   const handleInput = (action, data) => {
-    console.log(`handle input: ${action}: ${JSON.stringify(data)}`)
-  }
+    console.log(`handle input: ${action}: ${JSON.stringify(data)}`);
+  };
 
   useEffect(() => {
     console.log("bind input");
@@ -39,4 +39,4 @@ const ReactROgue = ({ width, height, tilesize }) => {
   );
 };
 
-export default ReactROgue;
+export default ReactRogue;

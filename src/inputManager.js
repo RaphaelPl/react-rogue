@@ -1,9 +1,11 @@
 // creating a class to handle the player input via obsever pattern
 class inputManager {
-  observer = [];
+  
+
+  observers = [];
 
   subscribe(fn) {
-    this.observer.push(fn);
+    this.observers.push(fn);
   }
   unsubscribe(fn) {
     this.observers = this.observers.filter((subscriber) => subscriber !== fn);
@@ -32,16 +34,16 @@ class inputManager {
       case 38:
         this.broadcast("move", { x: 0, y: 1 });
         break;
-        default:
+      default:
         break;
     }
   };
   bindKeys() {
-      document.addEventListener('keydown', this.handleKeys)
+    document.addEventListener("keydown", this.handleKeys);
   }
-  unbind(){
-      document.removeEventListener('keydown', this.handleKeys)
+  unbind() {
+    document.removeEventListener("keydown", this.handleKeys);
   }
-  
-  
 }
+
+export default inputManager;

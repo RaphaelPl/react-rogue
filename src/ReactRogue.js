@@ -1,8 +1,24 @@
 import React, { useEffect, useRef } from "react";
+import inputManager from "./inputManager"
 
 const ReactROgue = ({ width, height, tilesize }) => {
   // hook to give us handy access to canvas
   const canvasRef = useRef();
+  // allows us to call this class and call bind keys on the document
+  var inputManager = new inputManager();
+  const handleInput = (action, data) => {
+    console.log(`handle input: ${action}: ${JSON.stringify(data)}`)
+  }
+
+  useEffect(() => {
+    console.log("bind input");
+    inputManager.bindKeys();
+    inputManager.subscribe(handleInput);
+    return () => {
+      inputManager.unbindKeys();
+      inputManager.unsubscribe(handleInput);
+    };
+  });
 
   // useEffect is a lifecycle hook that
   useEffect(() => {

@@ -32,6 +32,16 @@ class inputManager {
       case 38:
         this.broadcast("move", { x: 0, y: 1 });
         break;
+        default:
+        break;
     }
   };
+  bindKeys() {
+      document.addEventListener('keydown', this.handleKeys)
+  }
+  unbind(){
+      document.removeEventListener('keydown', this.handleKeys)
+  }
+  
+  
 }

@@ -21,11 +21,11 @@ class World {
       if (x === 0 || y === 0 || x === this.width - 1 || y === this.height - 1) {
         this.worldmap[x][y] = 1;
         return;
-      } 
+      }
       this.worldmap[x][y] = value === 0 ? 1 : 0;
     };
-    map.create(userCallback)
-    map.connect(userCallback, 1)
+    map.create(userCallback);
+    map.connect(userCallback, 1);
   }
   //   draw looks into array and if 1 draws a wallm, if 0 moves to next element
   draw(context) {

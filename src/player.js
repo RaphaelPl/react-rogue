@@ -10,7 +10,7 @@ class Player {
   }
   draw(context) {
     context.fillStyle = "ff5733";
-    context.textBaseline = "hanging";
+    // context.textBaseline = "hanging";
     context.font = "16px";
     context.fillText("@", this.x * this.size, this.y * this.size);
   }

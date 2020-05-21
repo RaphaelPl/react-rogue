@@ -9,10 +9,10 @@ class Player {
     this.y += dy;
   }
   draw(context) {
-    context.fillStyle = "#f00";
+    context.fillStyle = "ff5733";
     context.textBaseline = "hanging";
-    context.font = "16px Helvetica";
-    context.fillText = ("X", this.x * this.size, this.y * this.size);
+    context.font = "16px";
+    context.fillText("@", this.x * this.size, this.y * this.size);
   }
 }
 

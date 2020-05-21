@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import InputManager from "./InputManager";
 import Player from "./Player";
-import World from "./World"
+import World from "./World";
 
 const ReactRogue = ({ width, height, tilesize }) => {
   // hook to give us handy access to canvas
   const canvasRef = useRef();
-  const [world, setWorld] = useState(new World(width, height, tilesize))
-  const [player, setPlayer] = useState(new Player(1, 2, tilesize));
+  const [world, setWorld] = useState(new World(width, height, tilesize));
+  const [player, setPlayer] = useState(new Player(12, 12, tilesize));
   // allows us to call this class and call bind keys on the document
   let inputManager = new InputManager();
   const handleInput = (action, data) => {
@@ -35,7 +35,9 @@ const ReactRogue = ({ width, height, tilesize }) => {
     // context
     const ctx = canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, width * tilesize, height * tilesize);
-    world.draw(ctx)
+    // ctx.fillRect(player.x, player.y, 16, 16)
+    // ctx.fillStyle = "#000"
+    world.draw(ctx);
     player.draw(ctx);
   });
   return (

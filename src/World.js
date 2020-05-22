@@ -4,7 +4,7 @@ class World {
   constructor(width, height, tilesize) {
     this.width = width;
     this.height = height;
-    this.tilsize = tilesize;
+    this.tilesize = tilesize;
 
     // create 2d array for the world map on the canvas
     this.worldmap = new Array(this.width);

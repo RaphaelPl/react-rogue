@@ -7,16 +7,17 @@ const ReactRogue = ({ width, height, tilesize }) => {
   // hook to give us handy access to canvas
   const canvasRef = useRef();
   const [world, setWorld] = useState(new World(width, height, tilesize));
-  const [player, setPlayer] = useState(new Player(12, 12, tilesize));
+  // Bring player into world 
+  // const [player, setPlayer] = useState(new Player(12, 12, tilesize));
   // allows us to call this class and call bind keys on the document
   let inputManager = new InputManager();
   const handleInput = (action, data) => {
     console.log(`handle input: ${action}: ${JSON.stringify(data)}`);
     // shallow copy of player and placed into newPlayer
-    let newPlayer = new Player();
-    Object.assign(newPlayer, player);
-    newPlayer.move(data.x, data.y);
-    setPlayer(newPlayer);
+    let newWorld = new World();
+    Object.assign(newWorld, world);
+    newWorld.movePlayer(data.x, data.y);
+    setWorld(newWorld);
   };
 
   useEffect(() => {

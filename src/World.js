@@ -36,11 +36,11 @@ class World {
     }
   }
   drawWall(context, x, y) {
-    context.fillStyle = "#000";
+    context.fillStyle = "#5f0b0d";
     context.fillRect(
       x * this.tilesize,
       y * this.tilesize,
-      this.tilsize,
+      this.tilesize,
       this.tilesize
     );
   }

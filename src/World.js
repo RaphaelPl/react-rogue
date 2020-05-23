@@ -20,6 +20,8 @@ class World {
   }
 
   movePlayer(dx, dy) {
+    // CREATE COPY OF PLAYER TO CHECK FOR WALLS
+    let tempPlayer = this.player.copyPlayer();
     this.player.move(dx, dy);
   }
 
@@ -37,7 +39,7 @@ class World {
     map.create(userCallback);
     map.connect(userCallback, 1);
   }
-  //   draw looks into array and if 1 draws a wallm, if 0 moves to next element
+  //   draw looks into array and if 1 draws a wall, if 0 moves to next element
   // draw player and entities
   draw(context) {
     for (let x = 0; x < this.width; x++) {

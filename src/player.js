@@ -14,6 +14,12 @@ class Player {
     context.font = "16px";
     context.fillText("@", this.x * this.size, this.y * this.size);
   }
+  // copy player to allow check to see if player is currently in wall
+  copyPlayer() {
+    let newPlayer = new Player();
+    Object.assign(newPlayer, this);
+    return newPlayer;
+  }
 }
 
 export default Player;

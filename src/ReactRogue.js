@@ -7,7 +7,7 @@ const ReactRogue = ({ width, height, tilesize }) => {
   // hook to give us handy access to canvas
   const canvasRef = useRef();
   const [world, setWorld] = useState(new World(width, height, tilesize));
-  // Bring player into world 
+  // Bring player into world
   // const [player, setPlayer] = useState(new Player(12, 12, tilesize));
   // allows us to call this class and call bind keys on the document
   let inputManager = new InputManager();
@@ -19,6 +19,15 @@ const ReactRogue = ({ width, height, tilesize }) => {
     newWorld.movePlayer(data.x, data.y);
     setWorld(newWorld);
   };
+
+  // pass an empty list to tell this useEffect to only render the component on mounting and not again
+  useEffect(() => {
+    console.log("map created!");
+    let newWorld = new World();
+    Object.assign(newWorld, world);
+    newWorld.createCellularMap();
+    setWorld(newWorld);
+  }, []);
 
   useEffect(() => {
     console.log("bind input");
@@ -39,7 +48,6 @@ const ReactRogue = ({ width, height, tilesize }) => {
     // ctx.fillRect(player.x, player.y, 16, 16)
     // ctx.fillStyle = "#000"
     world.draw(ctx);
-    player.draw(ctx);
   });
   return (
     <canvas

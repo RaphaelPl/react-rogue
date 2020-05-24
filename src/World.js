@@ -22,6 +22,8 @@ class World {
   movePlayer(dx, dy) {
     // CREATE COPY OF PLAYER TO CHECK FOR WALLS
     let tempPlayer = this.player.copyPlayer();
+    tempPlayer.move(dx, dy)
+    if(this.isWall(tempPlayer.x, tempPlayer.y))
     this.player.move(dx, dy);
   }
 

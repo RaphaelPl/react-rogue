@@ -15,16 +15,40 @@ class World {
     }
   }
 
+  // grab player from list of entities
   get player() {
     return this.entities[0];
+  }
+
+  moveToSpace(entity) {
+    for (let x = entity.x; x < this.width; x++) {
+      for (let y = 0; y < this.height; y++) {
+        if (this.worldmap[x][y] === 0) {
+          entity.x = x;
+          entity.y = y;
+          return;
+        }
+      }
+    }
+  }
+  // check to see if player or entity is within a wall by checking the co-ords
+  isWall(x, y) {
+    return (
+      this.worldmap[x] === undefined ||
+      this.worldmap[y] === undefined ||
+      this.worldmap[x][y] === 1
+    );
   }
 
   movePlayer(dx, dy) {
     // CREATE COPY OF PLAYER TO CHECK FOR WALLS
     let tempPlayer = this.player.copyPlayer();
-    tempPlayer.move(dx, dy)
-    if(this.isWall(tempPlayer.x, tempPlayer.y))
-    this.player.move(dx, dy);
+    tempPlayer.move(dx, dy);
+    if (this.isWall(tempPlayer.x, tempPlayer.y)) {
+      console.log(`Way blocked at ${tempPlayer.x}: ${tempPlayer.y}`);
+    } else {
+      this.player.move(dx, dy);
+    }
   }
 
   //   randomly places 1 or 0 in each element of the 2d array

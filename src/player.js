@@ -1,6 +1,12 @@
 import Entity from "./Entity";
 
 class Player extends Entity {
+  atttributes = {
+    name: "Player",
+    ascii: "@",
+    health: 10,
+  };
+
   move(dx, dy) {
     this.x += dx;
     this.y += dy;

@@ -1,10 +1,5 @@
-import Entity from "./Entity"
+import Entity from "./Entity";
 
-class Loot extends Entity {
+class Loot extends Entity {}
 
-
-
-
-}
-
-export default Loot 
+export default Loot;
